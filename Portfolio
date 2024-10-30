@@ -1,0 +1,8 @@
+/portfolio
+|-- index.html
+|-- styles.css
+|-- script.js
+|-- /images
+    |-- profile.jpg
+    |-- project1.png
+    |-- skill-html.png
