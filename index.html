@@ -4,127 +4,311 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e1e;
+            color: white;
+            overflow-x: hidden;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        h1, h2, p {
+            margin: 0;
+            padding: 10px;
+        }
+
+        /* Fixed Side Navigation */
+        .side-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .side-nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .side-nav a {
+            text-decoration: none;
+            color: white;
+            margin: 15px 0;
+            display: block;
+            font-weight: 500;
+        }
+
+        .side-nav a:hover {
+            color: #ff5722;
+        }
+
+        /* Content & Section Styles */
+        .container {
+            margin-left: 220px; /* Adjust content to avoid overlap with the menu */
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory; /* Snap scrolling for vertical sections */
+        }
+
+        .section {
+            scroll-snap-align: start;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            background: linear-gradient(to right, #1e1e1e, #2c2c2c);
+        }
+
+        .section h2 {
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .section p {
+            text-align: center;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        /* Home Section - Circular Image Frame */
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-top: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Skills & Certificates Grid */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Two columns */
+            gap: 15px;
+            width: 50%;
+        }
+
+        .grid-container img {
+            width: 100%;
+            height: 120px; /* Medium size */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .grid-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Project Container */
+        .project-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            width: 80%; /* Control the width */
+            margin: 0 auto; /* Center the container */
+        }
+
+        .project-container img {
+            width: 300px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-container img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-links a {
+            color: #4db6ac;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        /* Contact Section Styles */
+        .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 20px;
+            background: linear-gradient(to right, #2c2c2c, #1e1e1e); /* A slight gradient for consistency */
+        }
+
+        .contact h2 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .contact p {
+            text-align: center;
+            max-width: 600px; /* Limit width for readability */
+            font-weight: 300;
+            line-height: 1.5; /* Improved line spacing for better readability */
+            margin-bottom: 10px;
+        }
+
+        /* Email and Phone styles */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px; /* Space between email and phone */
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            left: 220px;
+            width: calc(100% - 220px);
+        }
+    </style>
 </head>
 <body>
 
-    <!-- Menu Button -->
-    <div class="menu-icon" id="menu-icon">☰</div>
-
     <!-- Side Navigation -->
-    <nav class="side-nav" id="side-nav">
+    <nav class="side-nav">
         <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#certificates">Certificates</a></li>
-            <li><a href="#social">Social Media</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" class="scroll-link">Home</a></li>
+            <li><a href="#about" class="scroll-link">About</a></li>
+            <li><a href="#education" class="scroll-link">Education</a></li>
+            <li><a href="#skills" class="scroll-link">Skills</a></li>
+            <li><a href="#projects" class="scroll-link">Projects</a></li>
+            <li><a href="#certificates" class="scroll-link">Certificates</a></li>
+            <li><a href="#social" class="scroll-link">Social</a></li>
+            <li><a href="#contact" class="scroll-link">Contact</a></li>
         </ul>
     </nav>
 
-    <!-- Sections -->
-    <section id="home" class="section">
-        <h1>Hello, I'm [Your Name]</h1>
-        <p>Welcome to my portfolio!</p>
-    </section>
+    <!-- Content Sections -->
+    <div class="container">
+        <section id="home" class="section">
+            <h1>Hello, I'm [Your Name]</h1>
+            <p>Welcome to my portfolio!</p>
+            <div class="profile-image">
+                <img src="profile.jpg" alt="Profile Picture">
+            </div>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>Hi! I am Narenkumar. I am a Application Developer, and I'm very passionate and dedicated to my work. 
-        I have acquired the skills and knowledge necessary to make your project a success. I enjoy every step of the developing an Application, 
-        from discussion and collaboration..</p>
-    </section>
+        <section id="about" class="section">
+            <h2>About Me</h2>
+            <p>I am Narenkumar, an Application Developer passionate about coding and collaboration.</p>
+        </section>
 
-    <!-- Education Section -->
-    <section id="education" class="section">
-        <h2>Education</h2>
-        <p>BCA - Artificial Intelligence and Data Science</p>
-        <h3>Institute</h3>
-        <p>DR.M.G.R University of Research and Institution</p>
-        <h4>Year</h4>
-        <p>2022 - 2025</p>
-    </section>
+        <section id="education" class="section">
+            <h2>Education</h2>
+            <p>BCA - Artificial Intelligence and Data Science</p>
+            <p>DR.M.G.R University of Research and Institution (2022 - 2025)</p>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <div class="skill-item">
+        <section id="skills" class="section">
+            <h2>Skills</h2>
+            <div class="grid-container">
                 <img src="html-icon.png" alt="HTML">
-                <p>HTML</p>
-            </div>
-            <div class="skill-item">
-                <img src="Python-icon.png" alt="Python">
-                <p>Python</p>
-            </div>
-            <div class="skill-item">
+                <img src="python-icon.png" alt="Python">
                 <img src="java-icon.png" alt="Java">
-                <p>Java</p>
+                <img src="r-icon.png" alt="R">
             </div>
-            <div class="skill-item">
-                <img src="R-icon.png" alt="R">
-                <p>R</p>
+        </section>
+
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="project-container">
+                <img src="Movie Ticket Booking.png" alt="Retro Movies">
+                <h3>The above project is about Online ticket booking</h2>
+                <img src="Netflix Analysis.png" alt="Netflix Analysis">
+                <h3>In this project about the Netflix's Sentiment Analysis</h3>
             </div>
+        </section>
+
+        <section id="certificates" class="section">
+            <h2>Certificates</h2>
+            <div class="grid-container">
+                <img src="cert1.png" alt="Certificate 1">
+                <img src="cert2.png" alt="Certificate 2">
+                <img src="cert3.png" alt="Certificate 3">
+                <img src="cert4.png" alt="Certificate 4">
+            </div>
+        </section>
+
+        <section id="social" class="section">
+            <h2>Follow Me</h2>
+        <div class="social-links">
+            <a href="#" target="_blank">Instagram</a>
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">LinkedIn</a>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="projects-container">
-            <div class="project-item">
-                <img src="project1.png" alt="Project 1">
+        <section id="contact" class="section">
+            <h2>Contact Me</h2>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:dir.naren@gmail.com" style="color: #ff5722;">dir.naren@gmail.com</a></p>
+                <p>Phone: <a href="tel:7904755220" style="color: #ff5722;">7904755220</a></p>
             </div>
-            <div class="project-item">
-                <img src="project2.png" alt="Project 2">
-            </div>
-        </div>
-        <p>Details of your recent projects.</p>
-    </section>
-
-    <!-- Certificates Section -->
-    <section id="certificates" class="section">
-        <h2>Certificates</h2>
-        <div class="certificates-container">
-            <div class="certificate-item">
-                <img src="cert1.png" alt="Introduction to Python">
-            </div>
-            <div class="certificate-item">
-                <img src="cert2.png" alt="Cloud Application Developer">
-            </div>
-            <div class="certificate-item">
-                <img src="cert3.png" alt="IBM Watson Studio">
-            </div>
-            <div class="certificate-item">
-                <img src="cert4.png" alt="Data Analysis with Python">
-            </div>
-        </div>
-    </section>
-
-    <!-- Social Media Section -->
-    <section id="social" class="section">
-        <h2>Social Media</h2>
-        <p>Connect with me:</p>
-        <a href="https://instagram.com">Instagram</a> |
-        <a href="https://facebook.com">Facebook</a> |
-        <a href="https://twitter.com">Twitter</a> |
-        <a href="https://linkedin.com">LinkedIn</a>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2>Contact Me</h2>
-        <p>Email: dir.naren@gmail.com</p>
-        <p>Phone: 7904755220</p>
-    </section>
+        </section>
+        
 
     <footer>
         <p>© 2024 [Your Name]. All Rights Reserved.</p>
     </footer>
+
+    <script>
+        // JavaScript for smooth scrolling
+        document.querySelectorAll('.scroll-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default anchor click behavior
+
+                const targetId = this.getAttribute('href'); // Get the href attribute
+                const targetSection = document.querySelector(targetId); // Find the target section
+
+                if (targetSection) {
+                    // Scroll to the target section smoothly
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>
