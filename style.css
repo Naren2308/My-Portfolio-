@@ -4,13 +4,8 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: #1e1e1e; /* Dark mode background */
     color: white;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    scroll-behavior: smooth; /* Smooth scrolling */
-}
-
-h1, h2, p {
-    margin: 0;
-    padding: 10px;
+    overflow: hidden; /* Prevent horizontal scroll */
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
 }
 
 /* Fixed Side Navigation */
@@ -23,7 +18,7 @@ h1, h2, p {
     background-color: #333;
     z-index: 1000;
     padding: 20px;
-    overflow-y: auto; /* Enable vertical scrolling if necessary */
+    overflow-y: auto;
 }
 
 .side-nav ul {
@@ -40,46 +35,40 @@ h1, h2, p {
 }
 
 .side-nav a:hover {
-    color: #ff5722; /* Hover effect for links */
+    color: #ff5722;
 }
 
-/* Content & Section Styles */
+/* Container and Section Styles for Slide Scrolling */
 .container {
-    margin-left: 220px; /* Adjust content to avoid overlap with the menu */
+    margin-left: 220px; /* Prevent overlap with the side menu */
+    display: flex;
+    flex-direction: column;
     height: 100vh; /* Full viewport height */
-    overflow-y: auto; /* Enable scrolling for content */
-    scroll-snap-type: y mandatory; /* Snap scrolling for vertical sections */
+    overflow-y: scroll; /* Enable vertical scrolling */
+    scroll-snap-type: y mandatory; /* Snap scrolling for sections */
 }
 
 .section {
-    scroll-snap-align: start; /* Snap each section to the start */
-    min-height: 100vh; /* Full height for each section */
+    scroll-snap-align: start; /* Snap each section to the top when scrolling */
+    height: 100vh; /* Full height for each section */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 50px 20px;
-    background: linear-gradient(to right, #1e1e1e, #2c2c2c); /* Slight gradient for sections */
+    background: linear-gradient(to right, #1e1e1e, #2c2c2c); /* Gradient background */
 }
 
-.section h2 {
-    font-weight: 700;
+.section h2, .section h1 {
     margin-bottom: 10px;
 }
 
-.section p {
-    text-align: center;
-    max-width: 600px;
-    font-weight: 300;
-}
-
-/* Home Section - Circular Image Frame */
+/* Image Styling */
 .profile-image {
     width: 180px;
     height: 180px;
     border-radius: 50%;
     overflow: hidden;
-    margin-top: 20px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
@@ -93,14 +82,14 @@ h1, h2, p {
 .grid-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 15px; /* Small gap between images */
-    width: 50%; /* Control the width of the grid */
+    gap: 15px;
+    width: 50%; /* Adjust as needed */
 }
 
 .grid-container img {
-    width: 120px; /* Fixed width for skill icons */
-    height: 120px; /* Fixed height for skill icons */
-    object-fit: cover; /* Ensure the image covers the area */
+    width: 100%; /* Full width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -111,73 +100,27 @@ h1, h2, p {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
 }
 
-/* Project Container */
+/* Projects */
 .project-container {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Space between projects */
+    gap: 20px;
     align-items: center;
-    width: 80%; /* Control the width */
-    margin: 0 auto; /* Center the container */
+    width: 80%;
+    margin: 0 auto;
 }
 
 .project-container img {
-    width: 100%; /* Fit the image to the container */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 500px; /* Optional: limit maximum width */
+    width: 100%; /* Fit within the container */
+    height: auto;
+    max-width: 500px; /* Optional max-width */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .project-container img:hover {
     transform: scale(1.05);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Certificates */
-.grid-container.certificates {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* Responsive columns */
-}
-
-.grid-container.certificates img {
-    width: 100%; /* Fit the image to the container */
-    height: auto; /* Maintain aspect ratio */
-    max-width: 200px; /* Optional: limit maximum width */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Social Links */
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-/* Contact Section Styles */
-.contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 50px 20px;
-    background: linear-gradient(to right, #2c2c2c, #1e1e1e); /* A slight gradient for consistency */
-}
-
-.contact h2 {
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.contact p {
-    text-align: center;
-    max-width: 600px; /* Limit width for readability */
-    font-weight: 300;
-    line-height: 1.5; /* Improved line spacing for better readability */
-    margin-bottom: 10px;
 }
 
 /* Footer */
@@ -188,6 +131,6 @@ footer {
     padding: 10px;
     position: fixed;
     bottom: 0;
-    left: 220px; /* Align with content */
-    width: calc(100% - 220px); /* Full width minus the side nav */
+    left: 220px;
+    width: calc(100% - 220px);
 }
