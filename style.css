@@ -1,4 +1,8 @@
 /* General Styles */
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
