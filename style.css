@@ -1,15 +1,14 @@
 /* General Styles */
 html {
-    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    scroll-behavior: smooth;
 }
 
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    background-color: #1e1e1e; /* Dark mode background */
+    background-color: #1e1e1e;
     color: white;
-    overflow: hidden; /* Prevent horizontal scroll */
-    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+    overflow: hidden;
 }
 
 /* Fixed Side Navigation */
@@ -20,7 +19,6 @@ body {
     width: 200px;
     height: 100%;
     background-color: #333;
-    z-index: 1000;
     padding: 20px;
     overflow-y: auto;
 }
@@ -35,96 +33,29 @@ body {
     color: white;
     margin: 15px 0;
     display: block;
-    font-weight: 500;
 }
 
-.side-nav a:hover {
+.side-nav a.active {
     color: #ff5722;
+    font-weight: 700;
 }
 
-/* Container and Section Styles for Slide Scrolling */
 .container {
-    margin-left: 220px; /* Prevent overlap with the side menu */
+    margin-left: 220px;
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Full viewport height */
-    overflow-y: scroll; /* Enable vertical scrolling */
-    scroll-snap-type: y mandatory; /* Snap scrolling for sections */
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 }
 
 .section {
-    scroll-snap-align: start; /* Snap each section to the top when scrolling */
-    height: 100vh; /* Full height for each section */
+    scroll-snap-align: start;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 50px 20px;
-    background: linear-gradient(to right, #1e1e1e, #2c2c2c); /* Gradient background */
-}
-
-.section h2, .section h1 {
-    margin-bottom: 10px;
-}
-
-/* Image Styling */
-.profile-image {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    overflow: hidden;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Skills & Certificates Grid */
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two columns */
-    gap: 15px;
-    width: 50%; /* Adjust as needed */
-}
-
-.grid-container img {
-    width: 100%; /* Full width */
-    height: auto; /* Maintain aspect ratio */
-    object-fit: cover;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.grid-container img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-}
-
-/* Projects */
-.project-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    width: 80%;
-    margin: 0 auto;
-}
-
-.project-container img {
-    width: 100%; /* Fit within the container */
-    height: auto;
-    max-width: 500px; /* Optional max-width */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.project-container img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
 /* Footer */
@@ -133,7 +64,7 @@ footer {
     color: #ccc;
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 220px;
     width: calc(100% - 220px);
