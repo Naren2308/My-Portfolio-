@@ -9,65 +9,12 @@
         /* General Styling */
         body {
             margin: 0;
-            font-family: Arial, sans-serif; /* Default font for most elements */
+            font-family: Arial, sans-serif;
             background-color: #1e1e1e;
             color: white;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
-
-        /* Aside */
-        .aside {
-            width: 270px;
-            background-color: #fdf9ff;
-            position: fixed;
-            height: 100%;
-            left: 0;
-            top: 0;
-            z-index: 11;
-            border-right: 1px solid #e8dfec;
-            transition: all 0.3s ease;
-        }
-        .aside .aside-inner {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            padding: 30px;
-            overflow-y: auto;
-        }
-        .aside .logo {
-            padding: 30px 0;
-        }
-        .aside .logo a {
-            font-size: 40px;
-            color: #302e4d;
-            font-family: "Comic Sans MS", sans-serif; /* Retaining Comic Sans for logo */
-            font-weight: 700;
-            display: inline-block;
-            position: relative;
-            padding: 0 10px;
-            line-height: 50px;
-        }
-        .aside .nav-toggler {
-            height: 40px;
-            width: 45px;
-            border: 1px solid #d4d4e3;
-            cursor: pointer;
-            position: fixed;
-            left: 300px;
-            top: 20px;
-            z-index: 11;
-            border-radius: 5px;
-            background-color: #fdf9ff;
-        }
-
-        h1, h2, h3, p {
-            margin: 0;
-            padding: 10px;
-        }
-
         /* Side Navigation */
         .side-nav {
             position: fixed;
@@ -80,12 +27,10 @@
             z-index: 1000;
             padding: 20px;
         }
-
         .side-nav ul {
             list-style: none;
             padding: 0;
         }
-
         .side-nav a {
             text-decoration: none;
             color: white;
@@ -95,12 +40,10 @@
             font-weight: 500;
             transition: color 0.3s;
         }
-
         .side-nav a:hover {
             color: #ff4a4a;
             transform: scale(1.1);
         }
-
         /* Menu Icon */
         .menu-icon {
             position: fixed;
@@ -111,8 +54,7 @@
             cursor: pointer;
             z-index: 1100;
         }
-
-        /* Container & Section Styling */
+        /* Content Sections */
         .container {
             margin-top: 20px;
             padding: 20px;
@@ -121,142 +63,28 @@
             flex-direction: column;
             align-items: center;
         }
-
         .section {
             min-height: 100vh;
             padding: 80px 50px;
             color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
             max-width: 1200px;
             margin: auto;
             text-align: left;
         }
-
         .section h2 {
             font-size: 2.5em;
             margin-bottom: 20px;
             color: #ff4a4a;
-            font-family: 'Comic Sans MS', sans-serif; /* Keeping Comic Sans for section headings */
         }
-
-        /* Profile Image */
-        .profile-image {
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            overflow: hidden;
-            margin: 20px auto;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* About Section - Compact Layout */
+        /* About Section */
         .about-content {
             max-width: 900px;
             margin: auto;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            text-align: left;
         }
-
-        /* General Styles for Image Frames */
-.image-frame {
-    width: 150px; /* Set a fixed width for the frame */
-    height: 150px; /* Set a fixed height for the frame */
-    overflow: hidden; /* Hide overflow */
-    border-radius: 10px; /* Optional: rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-}
-
-.image-frame img {
-    width: 100%; /* Make image take full width */
-    height: 100%; /* Make image take full height */
-    object-fit: cover; /* Cover the frame without distortion */
-}
-
-/* Adjustments for Service Icons */
-.services-grid {
-    display: flex;
-    justify-content: space-around; /* Space out service items */
-    flex-wrap: wrap; /* Allow wrapping */
-}
-
-.service-item {
-    margin: 10px; /* Margin for service items */
-    text-align: center; /* Center text under icons */
-}
-
-/* Adjustments for Projects and Certificates */
-.projects-grid, .certificates-grid {
-    display: flex;
-    justify-content: center; /* Center items */
-    flex-wrap: wrap; /* Allow wrapping */
-    gap: 20px; /* Space between items */
-}
-
-.project-item, .certificate-item {
-    text-align: center; /* Center text under images */
-}
-
-
-        .about-content p {
-            font-size: 1.2em; /* Reduced font size for better readability */
-            margin: 20px 0;
-        }
-
-        .about-details {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 20px;
-            width: 100%;
-        }
-
-        .detail-box {
-            background-color: #2d2d2d;
-            padding: 20px;
-            border-radius: 8px;
-            width: 100%;
-            max-width: 600px;
-            margin-top: 20px;
-        }
-
-        .detail-box h3 {
-            font-size: 1.8em;
-            color: #ff4a4a;
-            margin-bottom: 10px; /* Added margin for spacing */
-        }
-
-        .resume-button {
-            padding: 12px 24px;
-            margin-top: 20px;
-            background: linear-gradient(45deg, #ff4a4a, #ff6a6a);
-            color: white;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.2s;
-            text-align: center;
-        }
-
-        .resume-button:hover {
-            transform: scale(1.05);
-        }
-
-        /* Skills */
+        /* Skills Section */
         .skills-container {
             display: flex;
             flex-direction: column;
@@ -264,9 +92,8 @@
             align-items: flex-start;
             width: 100%;
         }
-
         .skill {
-            font-size: 1.2em; /* Slightly reduced font size for skills */
+            font-size: 1.2em;
             background-color: #3c3c3c;
             padding: 10px;
             border-radius: 8px;
@@ -275,7 +102,6 @@
             justify-content: space-between;
             position: relative;
         }
-
         .skill-bar {
             position: absolute;
             top: 0;
@@ -284,7 +110,6 @@
             background: linear-gradient(45deg, #ff4a4a, #ff6a6a);
             border-radius: 8px;
         }
-
         .skill span {
             position: relative;
             font-weight: 700;
@@ -292,25 +117,42 @@
             z-index: 1;
             padding-left: 10px;
         }
-
-        .social-links {
+        /* Certificates and Projects */
+        .certificates-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding: 20px;
+        }
+        .image-frame {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
+            align-items: center;
         }
-
-        .social-links a {
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        /* Contact Info */
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .contact-info a {
             color: #4db6ac;
             text-decoration: none;
-            font-size: 20px;
         }
-
-        /* Certificates, Projects, Contact remain the same */
     </style>
 </head>
 <body>
-
     <!-- Menu Icon -->
     <div class="menu-icon" onclick="toggleNav()">☰</div>
 
@@ -342,130 +184,55 @@
             <div class="about-content">
                 <p>I am Narenkumar, an Application Developer passionate about coding and collaboration.</p>
                 <div class="about-details">
-                    <!-- Education Box -->
                     <div class="detail-box">
                         <h3>Education</h3>
-                        <p>10th Grade - School Name | Year</p>
-                        <p>12th Grade - School Name | Year</p>
-                        <p>College Degree - University | Year</p>
+                        <p>10th Grade - Velammal Vidhyashram | 2018 - 2019</p>
+                        <p>12th Grade - Velammal Vidhyashram | 2020 - 2021</p>
+                        <p>College Degree - Dr. M.G.R. Educational And Research Institute | 2022 - 2025</p>
                     </div>
-                    <!-- Work Experience Box -->
                     <div class="detail-box">
                         <h3>Work Experience</h3>
                         <p>Currently seeking job opportunities.</p>
                         <h3>Vision</h3>
-                        <p><i>"To craft scalable, user-centric applications that 
-                            seamlessly integrate with modern technologies, 
-                            improving lives and solving real-world problems 
-                            through innovation, collaboration, and continuous 
-                            learning."</i>
-                        </p>
-                        <button class="resume-button">View Resume</button>
-                    </div>
-                    <!-- Skills Section -->
-                    <div class="detail-box">
-                        <h3>Skills</h3>
-                        <div class="skills-container">
-                            <div class="skill" style="width: 80%;">
-                                <div class="skill-bar" style="width: 80%;"></div>
-                                <span>UI/UX Principle - 80%</span>
-                            </div>
-                            <div class="skill" style="width: 75%;">
-                                <div class="skill-bar" style="width: 75%;"></div>
-                                <span>OIS - 85%</span>
-                            </div>
-                            <div class="skill" style="width: 90%;">
-                                <div class="skill-bar" style="width: 90%;"></div>
-                                <span>Android - 95%</span>
-                            </div>
-                            <div class="skill" style="width: 85%;">
-                                <div class="skill-bar" style="width: 85%;"></div>
-                                <span>JavaScript - 90%</span>
-                            </div>
-                        </div>
+                        <p><i>"To craft scalable, user-centric applications that seamlessly integrate with modern technologies."</i></p>
+                        <button id="resumeButton" class="resume-button">View Resume</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <!-- Services Section -->
-<section id="services" class="section">
-    <h2>Services</h2>
-    <div class="services-grid">
-        <div class="service-item">
-            <img src="android.png" alt="Android" class="service-icon">
-        </div>
-        <div class="service-item">
-            <img src="ois.png" alt="OIS" class="service-icon">
-        </div>
-        <div class="service-item">
-            <img src="ui.png" alt="UI/UX Designing" class="service-icon">
-        </div>
-        <div class="service-item">
-            <img src="api.png" alt="API integration" class="service-icon">
-        </div>
-    </div>
-</section>
-
-        <!-- Certificates Section -->
-<section id="certificates" class="section">
-    <h2>Certificates</h2>
-    <div class="certificates-grid">
-        <div class="certificate-item">
-            <div class="image-frame">
-                <img src="cert1.png" alt="Introduction to Python">
-                <p>Introduction to Python</p>
+        <!-- Certificate Section -->
+        <section id="certificates" class="section">
+            <h2>Certificates</h2>
+            <div class="certificates-grid">
+                <div class="certificate-item">
+                    <div class="image-frame">
+                        <img src="cert1.jpg" alt="Introduction to Python">
+                        <p>Introduction to Python</p>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="certificate-item">
-            <div class="image-frame">
-                <img src="cert2.png" alt="IBM Watson Studio">
-                <p>IBM Watson Studio</p>
-            </div>
-        </div>
-        <div class="certificate-item">
-            <div class="image-frame">
-                <img src="cert3.png" alt="Cloud Application Developer">
-                <p>Cloud Application Developer</p>
-            </div>
-        </div>
-        <div class="certificate-item">
-            <div class="image-frame">
-                <img src="cert4.png" alt="Data Analysis with Python">
-                <p>Data Analysis with Python</p>
-            </div>
-        </div>
-    </div>
-</section>
-
+        </section>
 
         <!-- Projects Section -->
-<section id="projects" class="section">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-        <div class="project-item">
-            <div class="image-frame">
-                <img src="project1.png" alt="Retro Movies">
+        <section id="projects" class="section">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-item">
+                    <div class="image-frame">
+                        <img src="project1.png" alt="Retro Movies">
+                    </div>
+                    <h3>Retro Movies</h3>
+                    <p>I have created a sample Online ticket booking website</p>
+                </div>
             </div>
-            <h3>Retro Movies</h3>
-            <p>I have created an sample Online ticket booking website</p>
-        </div>
-        <div class="project-item">
-            <div class="image-frame">
-                <img src="m4uhd.png" alt="m4uhd">
-            </div>
-            <h3>M4UHD Movie Streming</h3>
-            <p>In this project i have create a sample Movie streaming application</p>
-        </div>
-    </div>
-</section>
+        </section>
 
         <!-- Contact Section -->
         <section id="contact" class="section">
             <h2>Contact</h2>
             <div class="contact-info">
-                <p>Email: dir.naren@gmail.com.com</p>
+                <p>Email: dir.naren@gmail.com</p>
                 <p>Phone: 7904752200</p>
                 <p>Address: 123 Main St, City, Country</p>
                 <a href="#" target="_blank">Instagram</a>
@@ -481,6 +248,10 @@
             const sideNav = document.getElementById("sideNav");
             sideNav.style.left = sideNav.style.left === "-250px" ? "0" : "-250px";
         }
+        document.getElementById("resumeButton").addEventListener("click", function() {
+            const resumeImageUrl = "Resume.jpg";
+            window.open(resumeImageUrl, "_blank");
+        });
     </script>
 </body>
 </html>
